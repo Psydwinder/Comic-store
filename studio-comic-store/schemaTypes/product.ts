@@ -53,26 +53,53 @@ export const product = defineType ({
         title: 'Release Date',
         type: 'date',
     }),
+
     defineField({
-        name: 'categories',
-        title: 'Categories',
-        type: 'string'
-    }),
-    defineField({
-      name: 'authors',
-      title: 'Author(s)',
-      type: 'string',
-    }),
-    defineField({
-      name: 'artists',
-      title: 'Artist(s)',
-      type: 'string',
-    }),
-    defineField({
-      name: 'publisher',
-      title: 'Publisher',
-      type: 'string'
-    })
+  name: 'categories',
+  title: 'Categories',
+  type: 'array',
+  of: [{ type: 'reference', to: [{ type: 'category' }] }],
+}),
+defineField({
+  name: 'authors',
+  title: 'Author(s)',
+  type: 'array',
+  of: [{ type: 'reference', to: [{ type: 'author' }] }],
+}),
+defineField({
+  name: 'artists',
+  title: 'Artist(s)',
+  type: 'array',
+  of: [{ type: 'reference', to: [{ type: 'artist' }] }],
+}),
+defineField({
+  name: 'publisher',
+  title: 'Publisher',
+  type: 'reference',
+  to: [{ type: 'publisher' }],
+}),
+    // defineField({
+    //     name: 'categories',
+    //     title: 'Categories',
+    //     type: 'string'
+    // }),
+    // defineField({
+    //   name: 'authors',
+    //   title: 'Author(s)',
+    //   type: 'string',
+    // }),
+    // defineField({
+    //   name: 'artists',
+    //   title: 'Artist(s)',
+    //   type: 'string',
+    // }),
+    // defineField({
+    //   name: 'publisher',
+    //   title: 'Publisher',
+    //   type: 'string'
+    // })
 
 ]
 })
+
+export default product;
