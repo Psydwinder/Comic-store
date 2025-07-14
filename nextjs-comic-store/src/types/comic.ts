@@ -1,13 +1,15 @@
-// src/types/comic.ts
 export interface Comic {
-  _id: string
-  title: string
-  slug: { current: string }
-  description: string
-  price: number
-  coverImage: string
-  categories: string[]
-  authors: string[]
-  releaseDate: string
-  stock: number
+  _id: string;
+  title: string;
+  issue: number;
+  slug: { current: string };
+  description?: string;
+  price: number;
+  stock: number;
+  releaseDate?: string;
+  coverImage?: string;
+  categories?: string[];
+  authors?: string[];
+  artists?: string[];
+  publisher?: string;
 }
