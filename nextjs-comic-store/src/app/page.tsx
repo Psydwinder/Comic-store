@@ -1,7 +1,11 @@
-// src/app/page.tsx
 import { client } from "@/sanity/client";
 import { allComicsQuery } from "@/sanity/queries";
 import { Comic } from "@/types/comic";
+import Link from "next/link";
+
+
+
+
 
 export default async function HomePage() {
   const comics: Comic[] = await client.fetch(allComicsQuery);
@@ -17,11 +21,18 @@ export default async function HomePage() {
               alt={comic.title}
               className="mb-2 h-64 object-cover"
             />
-            <h2 className="text-xl font-semibold">{comic.title}</h2>
-            <p className="text-sm text-gray-600">{comic.description}</p>
+            <Link href={`/comic/${comic.slug.current}`}>
+            <h2 className="text-xl font-semibold hover:underline">{comic.title}</h2>
+            </Link>
+            <p className="text-sm text-gray-600">Categories: {comic.categories?.join(", ") || "None"}</p>
+            <p className="text-sm text-gray-600">Publisher: {comic.publisher || "Unknown"}</p>
+            <p className="text-sm text-gray-600">Author(s): {comic.authors?.join(", ") || "Unknown"}</p>
+            <p className="text-sm text-gray-600">Artist(s): {comic.artists?.join(", ") || "Unknown"}</p>
             <p className="font-bold mt-2">£{comic.price}</p>
             <p className="text-xs">Stock: {comic.stock}</p>
+            
           </div>
+          
         ))}
       </div>
     </main>
