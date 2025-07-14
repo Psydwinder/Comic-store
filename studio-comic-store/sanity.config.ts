@@ -1,18 +1,23 @@
-import {defineConfig} from 'sanity'
-import {structureTool} from 'sanity/structure'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemaTypes'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
+
+// Import your document schemas
+import comic from './schemaTypes/product'
+import author from './schemaTypes/author'
+import artist from './schemaTypes/artist'
+import category from './schemaTypes/category'
+import publisher from './schemaTypes/publisher'
 
 export default defineConfig({
   name: 'default',
-  title: 'Comic-store',
+  title: 'Comic Store Backend',
 
-  projectId: 'm6r9f35v',
+  projectId: 'm6r9f35v', // Replace with your actual project ID
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [deskTool()],
 
   schema: {
-    types: schemaTypes,
+    types: [comic, author, artist, category, publisher],
   },
 })
