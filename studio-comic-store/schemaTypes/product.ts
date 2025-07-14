@@ -78,26 +78,6 @@ defineField({
   type: 'reference',
   to: [{ type: 'publisher' }],
 }),
-    // defineField({
-    //     name: 'categories',
-    //     title: 'Categories',
-    //     type: 'string'
-    // }),
-    // defineField({
-    //   name: 'authors',
-    //   title: 'Author(s)',
-    //   type: 'string',
-    // }),
-    // defineField({
-    //   name: 'artists',
-    //   title: 'Artist(s)',
-    //   type: 'string',
-    // }),
-    // defineField({
-    //   name: 'publisher',
-    //   title: 'Publisher',
-    //   type: 'string'
-    // })
 
 ]
 })
